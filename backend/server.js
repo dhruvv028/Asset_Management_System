@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -8,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "28@Dgupta",
-  database: "asset_registry"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -48,7 +49,12 @@ app.post("/employees", (req, res) => {
 
   db.query(query, [name, email, department], (err, result) => {
     if (err) {
-      console.log(err);
+      if (err.code === "ER_DUP_ENTRY") {
+        return res.status(400).json({
+          message: "Email already exists"
+        });
+      }
+
       return res.status(500).send("Error adding employee");
     }
 
@@ -143,9 +149,14 @@ app.post("/assets", (req, res) => {
     [asset_name, serial_number, purchase_date, status, employee_id],
     (err, result) => {
       if (err) {
-        console.log(err);
-        return res.status(500).send("Error adding asset");
+      if (err.code === "ER_DUP_ENTRY") {
+        return res.status(400).json({
+          message: "Serial number already exists"
+        });
       }
+
+      return res.status(500).send("Error adding asset");
+    }
 
       res.json({
         message: "Asset added successfully",

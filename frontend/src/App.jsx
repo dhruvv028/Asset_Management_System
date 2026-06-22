@@ -43,6 +43,20 @@ const fetchAssets = () => {
 
 //Add employee..
   const addEmployee = () => {
+    if (!name.trim()) {
+      alert("Name is required");
+      return;
+    }
+
+    if (!email.trim()) {
+      alert("Email is required");
+      return;
+    }
+
+    if (!department.trim()) {
+      alert("Department is required");
+      return;
+    }
   axios
     .post("http://localhost:5000/employees", {
       name,
@@ -59,7 +73,9 @@ const fetchAssets = () => {
   setDepartment("");
 })
     .catch((error) => {
-      console.log(error);
+      if (error.response?.data?.message) {
+        alert(error.response.data.message);
+      }
     });
 };
 //DELETE employee..
@@ -108,6 +124,20 @@ const updateEmployee = () => {
     });
 };
   const addAsset = () => {
+    if (!assetName.trim()) {
+    alert("Asset name is required");
+    return;
+  }
+
+  if (!serialNumber.trim()) {
+    alert("Serial number is required");
+    return;
+  }
+
+  if (!status) {
+    alert("Please select a status");
+    return;
+  }
 
   if (status === "Assigned" && !employeeId) {
     alert("Please select an employee before assigning an asset");
@@ -133,7 +163,9 @@ const updateEmployee = () => {
       setEmployeeId("");
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response?.data?.message) {
+        alert(error.response.data.message);
+      }
     });
 };
 const deleteAsset = (id) => {
