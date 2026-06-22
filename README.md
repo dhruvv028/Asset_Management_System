@@ -1,11 +1,11 @@
 # Asset Management System
 
 ### Employee Table
-![Employee Table](./src/assets/Employee%20Table.png)
+![Employee Table](./frontend/src/assets/Employee%20Table.png)
 
 ### Asset Table
 
-![Asset Table](./src/assets/Assets%20Table.png)
+![Asset Table](./frontend/src/assets/Assets%20Table.png)
 
 ## Overview
 
