@@ -1,16 +1,48 @@
-# React + Vite
+# Asset Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Employee Table
+![Employee Table](./src/assets/Employee%20Table.png)
 
-Currently, two official plugins are available:
+### Asset Table
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Asset Table](./src/assets/Assets%20Table.png)
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A full-stack asset management application that enables organizations to manage employees, track company assets, and assign assets to employees.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Employee CRUD Operations
+* Asset CRUD Operations
+* MySQL Database Integration
+
+## Tech Stack
+
+* React.js
+* Node.js
+* Express.js
+* MySQL
+* Axios
+
+## Setup
+
+### Backend
+
+```bash
+cd backend
+npm install
+node server.js
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## Author
+
+Dhruv Gupta
